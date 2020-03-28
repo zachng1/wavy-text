@@ -1,38 +1,283 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.centre-screen {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  min-height: 50vh;
 }
 
-.App-link {
-  color: #61dafb;
+.top-centre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 15vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.options-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2vh;
+  font-family: monospace;
+}
+
+.options-row > label {
+  margin: 2vh;
+}
+
+label > select {
+  margin-left: 2vh;
+}
+
+.default {
+  font-family: monospace;
+  font-size: 10vh;
+}
+
+
+/*colours*/
+
+.black {
+  color: #ffffff;
+  text-shadow: 0px 0px 0 rgb(250,250,250),
+               1px 1px 0 rgb(245,245,245),
+               2px 2px 0 rgb(240,240,240),
+               3px 3px 0 rgb(235,235,235),
+               4px 4px 0 rgb(230,230,230),
+               5px 5px 0 rgb(225,225,225),
+               6px 6px 0 rgb(220,220,220),
+               7px 7px 0 rgb(215,215,215),
+               8px 8px 0 rgb(210,210,210),
+               9px 9px 0 rgb(205,205,205),
+               10px 10px  0 rgb(200,200,200),
+               11px 11px 10px rgba(0,0,0,0.6),
+               11px 11px 1px rgba(0,0,0,0.5),
+               0px 0px 10px rgba(0,0,0,.2);
+}
+.red {
+  color: #eb1a1a;
+  text-shadow: 0px 0px 0 rgb(230,21,21),
+                1px 1px 0 rgb(225,16,16),
+                2px 2px 0 rgb(220,11,11),
+                3px 3px 0 rgb(215,6,6),
+                4px 4px 0 rgb(210,1,1),
+                5px 5px 0 rgb(205,-4,-4),
+                6px 6px 0 rgb(200,-9,-9),
+                7px 7px 0 rgb(195,-14,-14),
+                8px 8px 0 rgb(190,-19,-19),
+                9px 9px 0 rgb(185,-24,-24),
+                10px 10px  0 rgb(180,-29,-29),
+                11px 11px 10px rgba(0,0,0,0.6),
+                11px 11px 1px rgba(0,0,0,0.5),
+                0px 0px 10px rgba(0,0,0,.2);
+}
+.blue {
+  color: #321aeb;
+  text-shadow: 0px 0px 0 rgb(45,21,230),
+                1px 1px 0 rgb(40,16,225),
+                2px 2px 0 rgb(35,11,220),
+                3px 3px 0 rgb(30,6,215),
+                4px 4px 0 rgb(25,1,210),
+                5px 5px 0 rgb(20,-4,205),
+                6px 6px 0 rgb(15,-9,200),
+                7px 7px 0 rgb(10,-14,195),
+                8px 8px 0 rgb(5,-19,190),
+                9px 9px 0 rgb(0,-24,185),
+                10px 10px  0 rgb(-5,-29,180),
+                11px 11px 10px rgba(0,0,0,0.6),
+                11px 11px 1px rgba(0,0,0,0.5),
+                0px 0px 10px rgba(0,0,0,.2);
+}
+.green {
+  color: #32eb1a;
+  text-shadow: 0px 0px 0 rgb(45,230,21),
+                1px 1px 0 rgb(40,225,16),
+                2px 2px 0 rgb(35,220,11),
+                3px 3px 0 rgb(30,215,6),
+                4px 4px 0 rgb(25,210,1),
+                5px 5px 0 rgb(20,205,-4),
+                6px 6px 0 rgb(15,200,-9),
+                7px 7px 0 rgb(10,195,-14),
+                8px 8px 0 rgb(5,190,-19),
+                9px 9px 0 rgb(0,185,-24),
+                10px 10px  0 rgb(-5,180,-29),
+                11px 11px 10px rgba(0,0,0,0.6),
+                11px 11px 1px rgba(0,0,0,0.5),
+                0px 0px 10px rgba(0,0,0,.2);
+}
+.yellow {    
+  color: #ebeb1a;
+  text-shadow: 0px 0px 0 rgb(230,230,21),
+               1px 1px 0 rgb(225,225,16),
+               2px 2px 0 rgb(220,220,11),
+               3px 3px 0 rgb(215,215,6),
+               4px 4px 0 rgb(210,210,1),
+               5px 5px 0 rgb(205,205,-4),
+               6px 6px 0 rgb(200,200,-9),
+               7px 7px 0 rgb(195,195,-14),
+               8px 8px 0 rgb(190,190,-19),
+               9px 9px 0 rgb(185,185,-24),
+               10px 10px  0 rgb(180,180,-29),
+               11px 11px 10px rgba(0,0,0,0.6),
+               11px 11px 1px rgba(0,0,0,0.5),
+               0px 0px 10px rgba(0,0,0,.2);
+}
+.pink {
+  color: #eb1ada;
+  font-family: "Arial Black", Gadget, sans-serif;
+  text-shadow: 0px 0px 0 rgb(230,21,213),
+               1px 1px 0 rgb(225,16,208),
+               2px 2px 0 rgb(220,11,203),
+               3px 3px 0 rgb(215,6,198),
+               4px 4px 0 rgb(210,1,193),
+               5px 5px 0 rgb(205,-4,188),
+               6px 6px 0 rgb(200,-9,183),
+               7px 7px 0 rgb(195,-14,178),
+               8px 8px 0 rgb(190,-19,173),
+               9px 9px 0 rgb(185,-24,168),
+               10px 10px  0 rgb(180,-29,163),
+               11px 11px 10px rgba(0,0,0,0.6),
+               11px 11px 1px rgba(0,0,0,0.5),
+               0px 0px 10px rgba(0,0,0,.2);
+}
+.rainbow {
+  animation: colorRotate 2s linear 0s infinite;
+}
+@keyframes colorRotate {
+  0%, 100% {
+    color: #eb1a1a;
+    text-shadow: 0px 0px 0 rgb(230,21,21),
+                  1px 1px 0 rgb(225,16,16),
+                  2px 2px 0 rgb(220,11,11),
+                  3px 3px 0 rgb(215,6,6),
+                  4px 4px 0 rgb(210,1,1),
+                  5px 5px 0 rgb(205,-4,-4),
+                  6px 6px 0 rgb(200,-9,-9),
+                  7px 7px 0 rgb(195,-14,-14),
+                  8px 8px 0 rgb(190,-19,-19),
+                  9px 9px 0 rgb(185,-24,-24),
+                  10px 10px  0 rgb(180,-29,-29),
+                  11px 11px 10px rgba(0,0,0,0.6),
+                  11px 11px 1px rgba(0,0,0,0.5),
+                  0px 0px 10px rgba(0,0,0,.2);
   }
-  to {
-    transform: rotate(360deg);
+  12% {
+    color: #ebeb1a;
+    text-shadow: 0px 0px 0 rgb(230,230,21),
+                 1px 1px 0 rgb(225,225,16),
+                 2px 2px 0 rgb(220,220,11),
+                 3px 3px 0 rgb(215,215,6),
+                 4px 4px 0 rgb(210,210,1),
+                 5px 5px 0 rgb(205,205,-4),
+                 6px 6px 0 rgb(200,200,-9),
+                 7px 7px 0 rgb(195,195,-14),
+                 8px 8px 0 rgb(190,190,-19),
+                 9px 9px 0 rgb(185,185,-24),
+                 10px 10px  0 rgb(180,180,-29),
+                 11px 11px 10px rgba(0,0,0,0.6),
+                 11px 11px 1px rgba(0,0,0,0.5),
+                 0px 0px 10px rgba(0,0,0,.2);
+  }
+  25% {
+    color: #32eb1a;
+    text-shadow: 0px 0px 0 rgb(45,230,21),
+                  1px 1px 0 rgb(40,225,16),
+                  2px 2px 0 rgb(35,220,11),
+                  3px 3px 0 rgb(30,215,6),
+                  4px 4px 0 rgb(25,210,1),
+                  5px 5px 0 rgb(20,205,-4),
+                  6px 6px 0 rgb(15,200,-9),
+                  7px 7px 0 rgb(10,195,-14),
+                  8px 8px 0 rgb(5,190,-19),
+                  9px 9px 0 rgb(0,185,-24),
+                  10px 10px  0 rgb(-5,180,-29),
+                  11px 11px 10px rgba(0,0,0,0.6),
+                  11px 11px 1px rgba(0,0,0,0.5),
+                  0px 0px 10px rgba(0,0,0,.2);
+  }
+  50% {
+    color: #321aeb;
+    text-shadow: 0px 0px 0 rgb(45,21,230),
+                  1px 1px 0 rgb(40,16,225),
+                  2px 2px 0 rgb(35,11,220),
+                  3px 3px 0 rgb(30,6,215),
+                  4px 4px 0 rgb(25,1,210),
+                  5px 5px 0 rgb(20,-4,205),
+                  6px 6px 0 rgb(15,-9,200),
+                  7px 7px 0 rgb(10,-14,195),
+                  8px 8px 0 rgb(5,-19,190),
+                  9px 9px 0 rgb(0,-24,185),
+                  10px 10px  0 rgb(-5,-29,180),
+                  11px 11px 10px rgba(0,0,0,0.6),
+                  11px 11px 1px rgba(0,0,0,0.5),
+                  0px 0px 10px rgba(0,0,0,.2);
   }
 }
+
+/* Waves */
+
+.wavecontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.won {
+  animation: MoveUpDown 1s linear infinite;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    margin-top: 0vh;
+  }
+  50% {
+    margin-top: 7vh;
+  }
+}
+
+/*Rotation*/
+/*.rotatecontainer {
+  background-color: rgba(0,0,0,0.5);
+}*/
+
+.ron {
+  -webkit-animation-name: spinner;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 6s;
+
+  animation-name: spinner;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+  /* WebKit and Opera browsers */
+  @-webkit-keyframes spinner {
+    from { -webkit-transform: rotateY(0deg);    }
+    to   { -webkit-transform: rotateY(-360deg); }
+  }
+
+  /* all other browsers */
+  @keyframes spinner {
+    from {
+      -moz-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+    to {
+      -moz-transform: rotateY(-360deg);
+      -ms-transform: rotateY(-360deg);
+      transform: rotateY(-360deg);
+    }
+  }
