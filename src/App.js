@@ -9,7 +9,8 @@ class App extends React.Component {
       animate_text: "Hello Sakura, Hugo, & Jack!",
       colour: "black",
       wave: "woff",
-      rotate: "roff"
+      rotate: "roff",
+      wave_speed: 50
     };
   }
 
@@ -29,6 +30,10 @@ class App extends React.Component {
     this.setState({rotate: event.target.value});
   }
 
+  speedChange = (event) => {
+    this.setState({wave_speed: event.target.value})
+  }
+
   render() {
     return (
       <div>
@@ -39,7 +44,8 @@ class App extends React.Component {
           <Options 
           colourChange={this.colourChange}
           waveChange={this.waveChange}
-          rotateChange={this.rotateChange}/>
+          rotateChange={this.rotateChange}
+          speedChange={this.speedChange}/>
         </div>
         <div className = {"centre-screen"}>
           <AnimationBox
@@ -47,6 +53,7 @@ class App extends React.Component {
           colour = {this.state.colour}
           wave = {this.state.wave}
           rotate = {this.state.rotate} 
+          wave_speed = {this.state.wave_speed}
           />
         </div>
       </div>
@@ -54,7 +61,7 @@ class App extends React.Component {
   }
 }
 
-const Options = ({colourChange, waveChange, rotateChange}) => {
+const Options = ({colourChange, waveChange, rotateChange, speedChange}) => {
   return (
     <form className={"options-row"}>
       <label>Colour
@@ -74,18 +81,18 @@ const Options = ({colourChange, waveChange, rotateChange}) => {
           <option value="won">On</option>
         </select>
       </label>
+      <input type="range" min="10" max="30" onChange={speedChange}/>
       <label>Rotate
         <select onChange={rotateChange}>
           <option value="roff">Off</option>
           <option value="ron">On</option>
         </select>
-      </label>
-      
+      </label>      
     </form>
   )
 }
 
-const AnimationBox = ({animate_text, colour, wave, rotate}) => {
+const AnimationBox = ({animate_text, colour, wave, rotate, wave_speed}) => {
   const splitter = new GraphemeSplitter();
   const splittext = splitter.splitGraphemes(animate_text);
   return (
@@ -94,8 +101,8 @@ const AnimationBox = ({animate_text, colour, wave, rotate}) => {
         <div id="colourdiv" className = {colour}>
           <div id="wavediv" className = "wavecontainer">
             {splittext.map((letter, index)=> {
-              if (letter === ' ') return <div className = {wave} style={{"animation-delay": index/10+'s'}}>&#160;</div>;
-              else return <div className = {wave} style={{"animation-delay":index/10+'s'}}>{letter}</div>;
+              if (letter === ' ') return <div className = {wave} style={{"animation-delay": index/wave_speed+'s'}}>&#160;</div>;
+              else return <div className = {wave} style={{"animation-delay":index/wave_speed+'s'}}>{letter}</div>;
             })}
           </div>
         </div>
